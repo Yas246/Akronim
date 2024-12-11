@@ -6,7 +6,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed w-full z-50 px-6 py-4 bg-white/90 backdrop-blur-md shadow-md">
+    <nav className="fixed w-full z-50 px-6 py-4 bg-white/40 backdrop-blur-md shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-blue-600">
           AKRONIM

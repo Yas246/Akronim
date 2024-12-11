@@ -1,101 +1,282 @@
+"use client";
+import { initAnimations } from "@/app/utils/animations";
+import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    // Initialiser les animations
+    initAnimations();
+
+    // Animation immédiate pour la section hero
+    gsap.fromTo(
+      ".hero-content",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.5 }
+    );
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-screen page-content">
+      {/* Hero Section */}
+      <section className="relative h-screen">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/images/home.jpeg"
+          alt="AKRONIM Campus"
+          fill
+          className="object-cover brightness-50"
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white p-8 hero-content">
+            <h1 className="text-5xl font-bold mb-6 text-blue-400">
+              Bienvenue à AKRONIM
+            </h1>
+            <p className="text-xl mb-8 max-w-2xl">
+              L&apos;École Supérieure de Gestion, d&apos;Informatique et des
+              Sciences est une institution d&apos;excellence dédiée à former les
+              leaders de demain.
+            </p>
+            <a
+              href="/filieres"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-colors"
+            >
+              Découvrir nos formations
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Présentation Section */}
+      <section className="py-20 px-6 bg-white/80">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center fade-in opacity-100">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Notre Excellence</h2>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-600">✓</span>
+                  Plus de 20 ans d&apos;expertise
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-600">✓</span>
+                  Corps professoral international
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-600">✓</span>
+                  Programmes accrédités
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-blue-600">✓</span>
+                  Partenariats industriels
+                </li>
+              </ul>
+            </div>
+            <div className="relative h-[400px]">
+              <Image
+                src="/images/1.jpeg"
+                alt="Étudiants AKRONIM"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nouvelle section Vie Étudiante */}
+      <section className="py-20 px-6 bg-white/90">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center fade-in opacity-100">
+            Vie Étudiante
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8 fade-in opacity-100">
+            {/* Associations Étudiantes */}
+            <div className="glass-effect rounded-xl overflow-hidden">
+              <div className="relative h-48">
+                <Image
+                  src="/images/2.jpeg"
+                  alt="Associations étudiantes"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">
+                  Associations Étudiantes
+                </h3>
+                <p className="text-gray-700">
+                  Plus de 15 associations actives sur le campus, offrant des
+                  opportunités d&apos;engagement dans divers domaines :
+                  technologie, culture, sport, humanitaire.
+                </p>
+              </div>
+            </div>
+
+            {/* Campus Moderne */}
+            <div className="glass-effect rounded-xl overflow-hidden">
+              <div className="relative h-48">
+                <Image
+                  src="/images/3.jpeg"
+                  alt="Campus moderne"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">Campus Moderne</h3>
+                <p className="text-gray-700">
+                  Un environnement d&apos;apprentissage innovant avec des
+                  laboratoires de pointe, des espaces de coworking et une
+                  bibliothèque numérique.
+                </p>
+              </div>
+            </div>
+
+            {/* Événements */}
+            <div className="glass-effect rounded-xl overflow-hidden">
+              <div className="relative h-48">
+                <Image
+                  src="/images/4.jpeg"
+                  alt="Événements"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">
+                  Événements & Networking
+                </h3>
+                <p className="text-gray-700">
+                  Conférences, hackathons, forums entreprises et événements
+                  culturels tout au long de l&apos;année pour enrichir votre
+                  expérience étudiante.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Statistiques */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center fade-in opacity-100">
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-3xl font-bold text-blue-600 mb-2">1500+</div>
+              <div className="text-gray-700">Étudiants</div>
+            </div>
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+              <div className="text-gray-700">Associations</div>
+            </div>
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-gray-700">Événements/an</div>
+            </div>
+            <div className="glass-effect rounded-xl p-6">
+              <div className="text-3xl font-bold text-blue-600 mb-2">90%</div>
+              <div className="text-gray-700">Insertion pro.</div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-16 fade-in opacity-100">
+            <a
+              href="/contact"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-colors"
+            >
+              Rejoignez notre communauté
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center fade-in opacity-100">
+            Nos Certifications
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 fade-in opacity-100">
+            <div className="glass-effect rounded-xl p-6 text-center">
+              <Image
+                src="/images/5.jpeg"
+                alt="ISO Certification"
+                width={100}
+                height={100}
+                className="mx-auto mb-4"
+              />
+              <h3 className="font-bold">ISO 9001</h3>
+            </div>
+            <div className="glass-effect rounded-xl p-6 text-center">
+              <Image
+                src="/images/6.jpeg"
+                alt="CTI Certification"
+                width={100}
+                height={100}
+                className="mx-auto mb-4"
+              />
+              <h3 className="font-bold">CTI</h3>
+            </div>
+            <div className="glass-effect rounded-xl p-6 text-center">
+              <Image
+                src="/images/7.jpeg"
+                alt="AACSB Certification"
+                width={100}
+                height={100}
+                className="mx-auto mb-4"
+              />
+              <h3 className="font-bold">AACSB</h3>
+            </div>
+            <div className="glass-effect rounded-xl p-6 text-center">
+              <Image
+                src="/images/8.jpeg"
+                alt="EQUIS Certification"
+                width={100}
+                height={100}
+                className="mx-auto mb-4"
+              />
+              <h3 className="font-bold">EQUIS</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section CTA Formations */}
+      <section className="py-20 px-6 bg-white/90">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="glass-effect rounded-2xl p-12 fade-in opacity-100">
+            <h2 className="text-4xl font-bold mb-6">
+              Prêt à commencer votre parcours ?
+            </h2>
+            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+              Découvrez l&apos;ensemble de nos formations et trouvez celle qui
+              correspond à vos ambitions.
+            </p>
+            <Link
+              href="/filieres"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-colors"
+            >
+              Voir nos formations
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

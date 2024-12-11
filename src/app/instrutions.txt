@@ -1,0 +1,6 @@
+Voici un nouveau projet Nextjs avec typescript et tailwindcss
+1.Crée un site web avec un design glassmorphism pour une université ESGIS qui fournit des formation en informatique (Licence, Master, MBA) de gestion et IRT. Rajoute des images d'étudiants et tout
+2.Sur la page d'acceuil, je veux la présentation de l'école, des photos, des certifications,etc... Invente des informations s'il le faut
+3.Il faut une seconde page "Filières" où on présente les filères et formations disponibles avec leur descriptions dans des cards. Inventes en s'il le faut
+4.Applique les effets de styles gsap sur tout le site. Même une transition pour le changement de page
+5.Tu peux être créatif si tu juges nécessaires certzins rajouts.

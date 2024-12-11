@@ -1,7 +1,7 @@
 "use client";
+import { initAnimations } from "@/app/utils/animations";
 import Image from "next/image";
 import { useEffect } from "react";
-import { initAnimations } from "@/app/utils/animations";
 
 const filieres = [
   {
@@ -10,7 +10,7 @@ const filieres = [
       "Formation complète en développement logiciel, réseaux et sécurité informatique.",
     duree: "3 ans",
     niveau: "BAC+3",
-    image: "/images/9.jpeg ",
+    image: "/images/9.jpeg",
     details: [
       "Développement Web et Mobile",
       "Intelligence Artificielle",
